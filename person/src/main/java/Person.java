@@ -56,13 +56,13 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return 1;
+        return (int) this.name.hashCode() * this.hashCode();
     }
 
     public PersonBuilder newChildBuilder() {
         return this.child = new PersonBuilder()
                 .setSurname(this.surname)
-                .setAge(-100)
+                .setAge(0)
                 .setAddress(this.address);
     }
 }
