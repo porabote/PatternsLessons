@@ -7,7 +7,7 @@ public class Main {
                 .setAddress("Сидней")
                 .build();
         Person son = mom.newChildBuilder()
-               // .setName("Антошка")
+                .setName("Антошка")
                 .build();
         System.out.println("У " + mom + " есть сын, " + son);
 
@@ -20,7 +20,9 @@ public class Main {
 
         try {
             // Возраст недопустимый
-            new PersonBuilder().setAge(-100).build();
+            new PersonBuilder()
+                    .setAge(10)
+                    .build();
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }

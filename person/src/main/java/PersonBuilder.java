@@ -3,7 +3,7 @@ public class PersonBuilder {
     protected String name;
     protected String surname;
     protected String address;
-    protected Integer age;
+    protected Integer age = 1000;
 
     public PersonBuilder PersonBuilder() {
         return this;
@@ -31,13 +31,14 @@ public class PersonBuilder {
 
     public Person build() throws IllegalStateException {
 
-        if (this.age < 0) {
+        if (this.age != 1000 && this.age < 0) {
             throw new IllegalStateException("Age must be more or equals than 0");
-        } else if (this.name == null || this.surname == null) {
+        }
+        if (this.name == null || this.surname == null) {
             throw new IllegalStateException("Person must has name and surname");
         }
 
-        if (this.age == null) {
+        if (this.age == 1000) {
             return new Person(this.name, this.surname);
         } else {
             return new Person(this.name, this.surname, this.age);

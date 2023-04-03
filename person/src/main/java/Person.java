@@ -2,7 +2,7 @@ public class Person {
     protected final String name;
     protected final String surname;
     protected String address;
-    protected Integer age;
+    protected Integer age = 1000;
 
     protected PersonBuilder child;
 
@@ -18,7 +18,7 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return (this.age != null) ? true : false;
+        return (this.age == 1000) ? false : true;
     }
 
     public boolean hasAddress() {
@@ -38,7 +38,7 @@ public class Person {
     }
 
     public String getAddress() {
-        return this.address;
+        return this.address != null ? this.address : "Doesn't set";
     }
 
     public void setAddress(String address) {
@@ -46,12 +46,16 @@ public class Person {
     }
 
     public void happyBirthday() {
-        this.age++;
+        this.age = (this.age != 1000) ? this.age++ : 0;
     }
 
     @Override
     public String toString() {
-        return "User" + this.name;
+        return "User " +
+                " " + this.getName() +
+                " " + this.getSurname() +
+                "; Address:" + this.getAddress() +
+                "; Age: " + this.getAge();
     }
 
     @Override
