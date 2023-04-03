@@ -56,7 +56,7 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return (int) this.name.hashCode() * this.hashCode();
+        return (int) this.name.hashCode() * this.surname.hashCode();
     }
 
     public PersonBuilder newChildBuilder() {
